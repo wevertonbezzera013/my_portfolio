@@ -40,7 +40,7 @@ const Footer = () => {
 
   return (
     <>
-      <h2>Let's have a conversation with some coffee ☕</h2>
+      <h2>Let's have a conversation and drink some coffee ☕</h2>
 
       <div className="app__footer-cards">
         <div className="app__footer-card">
@@ -87,7 +87,7 @@ const Footer = () => {
                 className="p-text"
                 placeholder="Your Message..."
                 value={message}
-                name={message}
+                name="message"
                 onChange={handleChangeInput}
               />
             </div>
