@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-import { AppWrapp } from "../wrapper";
+import { AppWrapp, MotionWrap } from "../wrapper";
 import { urlFor, client } from "../../client";
 import "./Work.scss";
 
@@ -21,7 +21,20 @@ const Work = () => {
     });
   }, []);
 
-  const handleWorkFilter = (item) => {};
+  const handleWorkFilter = (item) => {
+    setactiveFilter(item);
+    setanimateCard([{ y: 100, opacity: 0 }]);
+
+    setTimeout(() => {
+      setanimateCard([{ y: 0, opacity: 1 }]);
+
+      if (item === 'All') {
+        setFilterWork(works);
+      } else {
+        setFilterWork(works.filter((work) => work.tags.includes(item)));
+      }
+    }, 500);
+  };
   return (
     <>
       <h2 className="head-text">
@@ -75,7 +88,7 @@ const Work = () => {
                     <AiFillEye/>
                   </motion.div>
                 </a>
-                <a href={work.codetLink} target="_blank" rel="noreferrer">
+                <a href={work.codeLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -89,6 +102,16 @@ const Work = () => {
                 </a>
               </motion.div>
             </div>
+
+            <div className="app__work-content app__flex">
+                    <h4 className="bold-text">{work.title}</h4>
+                    <p className="p-text" style={{ marginTop: 0 }}>{work.description}</p>
+
+                    <div className="app__work-tag app__flex">
+                      <p className="p-text">{work.tags[0]}</p>
+                    </div>
+            </div>
+
           </div>
         ))}
       </motion.div>
@@ -96,4 +119,9 @@ const Work = () => {
   );
 };
 
-export default AppWrapp(Work, "work");
+export default AppWrapp(
+  MotionWrap(Work, 'app__works'),
+  'work',
+  'app__primarybg'
+)
+
