@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-import { images } from '../../constants'
 import './About.scss'
 import { urlFor, client } from '../../client'
+import { AppWrapp } from '../wrapper'
 
 /* const abouts = [
   { title: 'Back-end Development', description: 'I have 3 years of experience with Back-End Development', imgUrl: images.about01 },
@@ -46,4 +46,4 @@ const About = () => {
   );
 };
 
-export default About
+export default AppWrapp(About, 'about')

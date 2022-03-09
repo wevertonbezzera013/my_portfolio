@@ -34,7 +34,7 @@ function Navbar() {
                 >
                   <HiX onClick={() => settoggle(false)}/>
                   <ul className="app__navbar-mobile">
-                    {['home', 'about', 'work', 'skill', 'contact'].map((item) => (
+                    {['home', 'about', 'work', 'skills', 'contact'].map((item) => (
                     <li key={item}>
                         <div/>
                         <a href={`#${item}`} onClick={() => settoggle(false)}>{item}</a>
