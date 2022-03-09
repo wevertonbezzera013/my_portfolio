@@ -136,12 +136,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--secondary-color);
+    background: var(--green-color);
+    transition: all 0.3s ease-in-out;
+            &:hover {
+                background: var(--secondary-color);
+            }
+    
 
     svg {
         width: 70%;
         height: 70%;
         color: var(--white-color);
+        cursor: pointer;
+        
     }
 
     div {
@@ -166,8 +173,13 @@
         svg {
             width: 35px;
             height: 35px;
-            color: var(--secondary-color);
+            color: var(--green-color);
             margin: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: var(--secondary-color);
+            }
         }
         ul {
             list-style: none;
